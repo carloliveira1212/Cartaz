@@ -1,0 +1,439 @@
+:root {
+  --bg: #060a14;
+  --bg-panel: #0c1220;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f4f6fb;
+  --text-dim: #aab3c5;
+  --blue: #2f7bf5;
+  --blue-light: #6fa8ff;
+  --blue-deep: #1a4fc4;
+  --font-display: "Sora", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(47, 123, 245, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(47, 123, 245, 0.10), transparent 55%),
+    var(--bg);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+}
+
+/* ---------- Brand header ---------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.brand-icon {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--blue-light);
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 1.05rem;
+}
+
+.brand-role {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  color: var(--blue-light);
+}
+
+/* ---------- Hero layout ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.hero-rule {
+  width: 46px;
+  height: 3px;
+  background: var(--blue);
+  margin-bottom: 22px;
+}
+
+.hero-slogan {
+  font-size: 1.15rem;
+  color: var(--text);
+  max-width: 30ch;
+  margin: 0 0 32px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  line-height: 1.12;
+  margin: 0 0 20px;
+}
+
+.hero-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: var(--blue);
+  margin-top: 14px;
+  border-radius: 2px;
+}
+
+.hero-desc {
+  color: var(--text-dim);
+  font-size: 1.02rem;
+  max-width: 42ch;
+  margin: 0 0 34px;
+}
+
+/* ---------- Services list ---------- */
+.services {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.service {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.service-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  color: var(--blue-light);
+}
+
+.service-icon svg { width: 100%; height: 100%; }
+
+.service strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  margin-bottom: 3px;
+}
+
+.service span {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+/* ---------- CTA ---------- */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+  padding: 14px 26px;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px -10px rgba(47, 123, 245, 0.55);
+  margin-top: 24px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -8px rgba(47, 123, 245, 0.65);
+}
+
+.cta-globe {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+
+.cta-globe svg { width: 100%; height: 100%; }
+
+.cta-text { display: flex; flex-direction: column; line-height: 1.25; }
+
+.cta-label {
+  font-size: 0.66rem;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cta-main {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.cta-note {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  max-width: 30ch;
+  margin: 24px 0 0;
+}
+
+/* ---------- Badges ---------- */
+.badges {
+  list-style: none;
+  padding: 18px 0 0;
+  margin: 0 0 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  color: var(--text-dim);
+  font-size: 0.86rem;
+}
+
+.badges li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badges svg {
+  width: 20px;
+  height: 20px;
+  color: var(--blue-light);
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.foot-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.foot-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+}
+
+.foot-role {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  margin: 6px 0 0;
+}
+
+/* ---------- Visual column ---------- */
+.hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #101a30, #060a14 70%);
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portrait.no-photo::before {
+  content: "Adicione sua foto em static/images/foto-carlos.jpg";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.tagline {
+  align-self: flex-end;
+  color: var(--blue-light);
+  font-style: italic;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  max-width: 20ch;
+  text-align: right;
+  margin: 18px 6px 30px 0;
+}
+
+/* ---------- Device mockups ---------- */
+.mockups {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.laptop {
+  width: 88%;
+}
+
+.laptop-screen {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 10px 10px 0 0;
+  padding: 14px 16px 24px;
+}
+
+.laptop-base {
+  height: 12px;
+  background: linear-gradient(180deg, #1a2338, #0c1220);
+  border-radius: 0 0 6px 6px;
+  margin: 0 -6px;
+}
+
+.mock-topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+.mock-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  border: 1px solid var(--blue-light);
+  color: var(--blue-light);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.mock-nav {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.mock-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mock-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: linear-gradient(160deg, #1c2b4d, #0c1220);
+  flex: none;
+}
+
+.mock-avatar.small { width: 40px; height: 40px; }
+
+.mock-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mock-text strong { font-size: 0.82rem; }
+.mock-text span { font-size: 0.68rem; color: var(--text-dim); }
+
+.mock-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.phone {
+  position: absolute;
+  right: -6%;
+  bottom: -18%;
+  width: 34%;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px 12px 18px;
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.6);
+}
+
+.phone-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mock-menu { color: var(--text-dim); font-size: 0.8rem; }
+
+.phone .mock-text.small { margin-top: 8px; gap: 4px; }
+.phone .mock-text.small strong { font-size: 0.66rem; }
+.phone .mock-text.small span { font-size: 0.55rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 880px) {
+  .page { padding: 40px 22px 48px; }
+  .hero { grid-template-columns: 1fr; gap: 44px; }
+  .hero-visual { order: -1; }
+  .tagline { align-self: center; text-align: center; }
+  .phone { right: 2%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button { transition: none; }
+}

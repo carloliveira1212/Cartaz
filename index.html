@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ nome }} · {{ cargo }}</title>
+  <meta name="description" content="{{ slogan }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="brand">
+      <span class="brand-icon">&lt;/&gt;</span>
+      <div class="brand-text">
+        <span class="brand-name">{{ nome | upper }}</span>
+        <span class="brand-role">{{ cargo | upper }}</span>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="hero-copy">
+        <div class="hero-rule"></div>
+        <p class="hero-slogan">{{ slogan }}</p>
+
+        <h1 class="hero-title">{{ titulo }}</h1>
+        <p class="hero-desc">{{ descricao }}</p>
+
+        <ul class="services">
+          {% for s in servicos %}
+          <li class="service">
+            <span class="service-icon" aria-hidden="true">
+              {% include s.icone + ".svg" %}
+            </span>
+            <div>
+              <strong>{{ s.titulo }}</strong>
+              <span>{{ s.texto }}</span>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <div class="cta-row">
+          <a class="cta-button" href="{{ cta_link }}" target="_blank" rel="noopener">
+            <span class="cta-globe" aria-hidden="true">{% include "globe.svg" %}</span>
+            <span class="cta-text">
+              <span class="cta-label">{{ cta_texto | upper }}</span>
+              <span class="cta-main">{{ cta_botao }} →</span>
+            </span>
+          </a>
+          <p class="cta-note">{{ cta_nota }}</p>
+        </div>
+
+        <ul class="badges">
+          {% for b in selos %}
+          <li>
+            <span aria-hidden="true">{% include b.icone + ".svg" %}</span>
+            {{ b.texto }}
+          </li>
+          {% endfor %}
+        </ul>
+
+        <footer class="foot">
+          <span class="foot-line"></span>
+          <span class="foot-name">{{ nome | upper }}</span>
+          <span class="foot-line"></span>
+        </footer>
+        <p class="foot-role">{{ cargo | upper }}</p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="portrait">
+          <img src="foto-carlos.jpg"
+               onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"
+               alt="">
+        </div>
+        <p class="tagline">{{ frase_lateral }}</p>
+
+        <div class="mockups">
+          <div class="laptop">
+            <div class="laptop-screen">
+              <div class="mock-topbar">
+                <span class="mock-logo">CA</span>
+                <span class="mock-nav">Início&nbsp;&nbsp;Projetos&nbsp;&nbsp;Currículo&nbsp;&nbsp;Contato</span>
+              </div>
+              <div class="mock-body">
+                <div class="mock-avatar"></div>
+                <div class="mock-text">
+                  <strong>{{ curriculo.nome_completo }}</strong>
+                  <span>{{ curriculo.formacao }}</span>
+                  <span class="mock-btn">Ver currículo</span>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"></div>
+          </div>
+          <div class="phone">
+            <div class="phone-topbar">
+              <span class="mock-logo">CA</span>
+              <span class="mock-menu">≡</span>
+            </div>
+            <div class="mock-avatar small"></div>
+            <div class="mock-text small">
+              <strong>{{ curriculo.nome_completo }}</strong>
+              <span>{{ curriculo.formacao }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
